@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"github.com/sid-shaha/restAPIExample/server"
 )
 
 func main() {
-	fmt.Printf("Setup the repo")
+	app := server.NewApp()
+	app.Run()
 }
