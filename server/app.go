@@ -20,7 +20,7 @@ type App struct {
 func NewApp() *App {
 	storage := initStorage()
 
-	postRepo := repository.NewPostRepository(storage)
+	postRepo := repository.NewPostIMRepository(storage)
 	postService := service.NewPostService(postRepo)
 	postHandler := handlers.NewPostHandler(postService)
 

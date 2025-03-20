@@ -14,16 +14,18 @@ func NewPostService(postRepo repository.PostRepository) *PostServiceImpl {
 		postRepository: postRepo,
 	}
 }
-
+func (p *PostServiceImpl) CreateNewPost(post models.Post) error {
+	return p.postRepository.AddNewPost(post)
+}
 func (p *PostServiceImpl) GetAllPosts() ([]models.Post, error) {
-	return make([]models.Post, 0), nil
+	return p.postRepository.GetAllPosts()
 }
 func (p *PostServiceImpl) GetPostByID(id int) (models.Post, error) {
-	return models.Post{}, nil
+	return p.postRepository.GetPostByID(id)
 }
 func (p *PostServiceImpl) DeletePost(id int) error {
-	return nil
+	return p.postRepository.DeletePost(id)
 }
 func (p *PostServiceImpl) UpdatePost(id int, post *models.Post) error {
-	return nil
+	return p.postRepository.UpdatePost(id, post)
 }
